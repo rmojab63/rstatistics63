@@ -1,0 +1,8 @@
+name: "From Statistics"
+navbar:
+  title: "From Statistics"
+  left:
+    - text: "Home"
+      href: index.html
+    - text: "About"
+      href: about.html
