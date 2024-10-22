@@ -5,11 +5,6 @@ output: md_document
 ---
 #  مثال ۱.۱: تعریف یک ماتریس (مقدمه‌ای بر برنامه‌نویسی)
 <div style='font-size: 0.8em;'><b>نویسنده:</b> <span>رامین مجاب</span></div>
-<div style='font-size: 0.8em; background-color: #f0f0f0; padding: 10px;'>
-<ul>
-<li><p><span>&#10229; </span><a href='/matrix_book_fa_example1.2.html'>مثال ۱.۲: شناسایی نوع ماتریس‌ها (ادامهٔ مقدمه‌ای بر برنامه‌نویسی)</a></p></li>
-<li><p><a href='/matrix_book_fa.html'><b>لیست مثال‌ها</b></a></p></li>
-</ul></div>
 
 این مثال حاوی یک بحث نسبتاً طولانی دربارهٔ ماتریس در **R** است. بحث را با کد زیر و استفاده از تابع `matrix` برای ایجاد یک ماتریس نمونه آغاز می‌کنیم:
 
@@ -142,3 +137,10 @@ output: md_document
 ```
 
 البته، رفتار یک تابع نسبت به ورودی‌هایش در **R** همیشه یکسان نیست و بهترین گزینه برای اطلاعات بیشتر، مطالعهٔ توضیحات هر تابع است.
+
+
+<hr/><div style='font-size: 0.8em; background-color: #f0f0f0; padding: 10px;'>
+<ul>
+<li><p><a href='matrix_book_fa_example1.2.html'>مثال ۱.۲: شناسایی نوع ماتریس‌ها (ادامهٔ مقدمه‌ای بر برنامه‌نویسی)</a></p></li>
+<li><p><a href='matrix_book_fa.html'><b>لیست مثال‌ها</b></a></p></li>
+</ul></div>

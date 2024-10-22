@@ -10,7 +10,6 @@ knitr::opts_chunk$set(background = NULL,
                       tidy = 'styler')
 
 create_md <- function(dir_name = "", deleteAll = FALSE, index_premd = NULL,
-                      prev_name = "<span>&#10230; </span>", next_name = "<span>&#10229; </span>",
                       main_list_name = "<b>Main List</b>", author_name = "<b>Author:</b> <span>Ramin Mojab</span>"){
   extract_title <- function(file) {
     lines <- readLines(file)
@@ -29,11 +28,11 @@ create_md <- function(dir_name = "", deleteAll = FALSE, index_premd = NULL,
     unlink(paste0(doc_dir, "/*"), recursive = TRUE)  
   
   all_titles <- sapply(rmd_files, function(f)extract_title(f))
-  index_file_html <- paste0("/", dir_name, ".html")
+  index_file_html <- paste0(dir_name, ".html")
   index_file_md <- paste0(doc_dir, "/", dir_name, ".md")
   get.ext.path <- function(ind, ext = "html", relative = ext == "html"){
     if (relative)
-      paste0("/", dir_name, "_",tools::file_path_sans_ext(basename(rmd_files[[ind]])), ".", ext)
+      paste0(dir_name, "_",tools::file_path_sans_ext(basename(rmd_files[[ind]])), ".", ext)
     else
       paste0(doc_dir, "/", dir_name, "_",tools::file_path_sans_ext(basename(rmd_files[[ind]])), ".", ext)
   }
@@ -52,37 +51,33 @@ create_md <- function(dir_name = "", deleteAll = FALSE, index_premd = NULL,
     
     text <- readLines(rmd_files[[i]])
     
-    # Add title, author, etc. links
+    # Add title, author
     j <- which(text == "---")[[2]]
     
     text <- append(text, c(paste("# ", file_title),
                            paste0("<div style='font-size: 0.8em;'>", author_name,"</div>")), after = j)
     j <- j+2
-     
-    text <- append(text, "<div style='font-size: 0.8em; background-color: #f0f0f0; padding: 10px;'>", after = j)
-    j <- j + 1
-    text <- append(text, "<ul>", after = j)
-    j <- j + 1 
+      
+    # Add links at the end
+    text <- append(text, c("", "", "<hr/><div style='font-size: 0.8em; background-color: #f0f0f0; padding: 10px;'>"))
+    text <- append(text, "<ul>")
     if (!is.null(prev_file_html)) { 
-      text <- append(text, paste0("<li><p>", prev_name, "<a href='", prev_file_html, "'>", prev_file_title, "</a></p></li>"), after = j)
-      j <- j + 1
+      text <- append(text, paste0("<li><p><a href='", prev_file_html, "'>", prev_file_title, "</a></p></li>"))
     } 
     if (!is.null(next_file_html)) {
-      text <- append(text, paste0("<li><p>", next_name, "<a href='", next_file_html, "'>", next_file_title, "</a></p></li>"), after = j)
-      j <- j + 1
+      text <- append(text, paste0("<li><p><a href='", next_file_html, "'>", next_file_title, "</a></p></li>"))
     } 
-    text <- append(text, paste0("<li><p><a href='", index_file_html, "'>", main_list_name, "</a></p></li>"), after = j)
-    j <- j + 1 
-    text <- append(text, "</ul></div>", after = j)
-    j <- j + 1
+    text <- append(text, paste0("<li><p><a href='", index_file_html, "'>", main_list_name, "</a></p></li>"))
+    text <- append(text, "</ul></div>")
+    
     
     knit(text = text, output = file_md)
     md_list[[length(md_list)+1]] <- paste0("[",file_title,"](", file_html,")")
   }
   
   writeLines(paste(if (is.null(index_premd)) {""} else {index_premd},
-                   paste0("- ", md_list)), con = index_file)
-  list(md_list, index_file)
+                   paste0("- ", md_list)), con = index_file_md)
+  list(md_list, index_file_md)
 }
 
 res <- create_md(dir_name = "matrix_book_fa", deleteAll = TRUE,
