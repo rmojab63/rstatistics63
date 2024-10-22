@@ -3,4 +3,4 @@ Welcome to the “Statistics and Beyond” webpage! Here, you’ll find a divers
 
 
 
-- [Examples in 'Matrix Theory for Economics' Book](doc/matrix_book.html)
+- [Examples in 'Matrix Theory for Economics' Book](doc/matrix_book.html) ([Persian version](doc/matrix_book_fa.html))

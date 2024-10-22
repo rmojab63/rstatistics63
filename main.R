@@ -2,7 +2,7 @@
 library(knitr)
 library(yaml)
 
-create_md <- function(dir_name = ""){
+create_md <- function(dir_name = "", deleteAll = FALSE){
   extract_title <- function(file) {
     lines <- readLines(file)
     yaml_lines <- lines[grep("^---$", lines)[1]:grep("^---$", lines)[2]]
@@ -15,7 +15,7 @@ create_md <- function(dir_name = ""){
   doc_dir <- file.path(getwd(), "doc")
   if (!dir.exists(doc_dir))
     dir.create(doc_dir) 
-  else
+  else if (deleteAll)
     unlink(paste0(doc_dir, "/*"), recursive = TRUE)  
 
   md_list <- list()
@@ -30,7 +30,8 @@ create_md <- function(dir_name = ""){
   list(md_list, index_file)
 }
 
-res <- create_md(dir_name = "matrix_book")
+res <- create_md(dir_name = "matrix_book", deleteAll = TRUE)
+res <- create_md(dir_name = "matrix_book_fa")
  
 
 
