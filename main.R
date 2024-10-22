@@ -25,12 +25,12 @@ create_md <- function(dir_name = ""){
     knit(input = file, output = o_file)
     md_list[[length(md_list)+1]] <- paste0("[",extract_title(o_file),"](",paste0(dir_name, "_", bname, ".html"),")")
   }
-  index_file <- paste0(doc_dir, "/", dir_name, "_index.md")
+  index_file <- paste0(doc_dir, "/", dir_name, ".md")
   writeLines(paste0("- ", md_list), con = index_file)
   list(md_list, index_file)
 }
 
 res <- create_md(dir_name = "matrix_book")
-
+ 
 
 
