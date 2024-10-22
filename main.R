@@ -2,6 +2,13 @@
 library(knitr)
 library(yaml)
 
+knitr::opts_chunk$set(background = NULL,
+                      warning = TRUE,
+                      prompt = TRUE,
+                      comment = "#",
+                      highlight = TRUE,
+                      tidy = 'styler')
+
 create_md <- function(dir_name = "", deleteAll = FALSE){
   extract_title <- function(file) {
     lines <- readLines(file)
