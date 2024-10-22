@@ -62,12 +62,12 @@ create_md <- function(dir_name = "", deleteAll = FALSE, index_premd = NULL,
     text <- append(text, c("", "", "<hr/><div style='font-size: 0.8em; background-color: #f0f0f0; padding: 10px;'>"))
     text <- append(text, "<ul>")
     if (!is.null(prev_file_html)) { 
-      text <- append(text, paste0("<li><p><a href='", prev_file_html, "'>", prev_file_title, "</a></p></li>"))
+      text <- append(text, paste0("<li><a href='", prev_file_html, "'>", prev_file_title, "</a></li>"))
     } 
     if (!is.null(next_file_html)) {
-      text <- append(text, paste0("<li><p><a href='", next_file_html, "'>", next_file_title, "</a></p></li>"))
+      text <- append(text, paste0("<li><a href='", next_file_html, "'>", next_file_title, "</a></li>"))
     } 
-    text <- append(text, paste0("<li><p><a href='", index_file_html, "'>", main_list_name, "</a></p></li>"))
+    text <- append(text, paste0("<li><a href='", index_file_html, "'>", main_list_name, "</a></li>"))
     text <- append(text, "</ul></div>")
     
     

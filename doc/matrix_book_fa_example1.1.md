@@ -141,6 +141,6 @@ output: md_document
 
 <hr/><div style='font-size: 0.8em; background-color: #f0f0f0; padding: 10px;'>
 <ul>
-<li><p><a href='matrix_book_fa_example1.2.html'>مثال ۱.۲: شناسایی نوع ماتریس‌ها (ادامهٔ مقدمه‌ای بر برنامه‌نویسی)</a></p></li>
-<li><p><a href='matrix_book_fa.html'><b>لیست مثال‌ها</b></a></p></li>
+<li><a href='matrix_book_fa_example1.2.html'>مثال ۱.۲: شناسایی نوع ماتریس‌ها (ادامهٔ مقدمه‌ای بر برنامه‌نویسی)</a></li>
+<li><a href='matrix_book_fa.html'><b>لیست مثال‌ها</b></a></li>
 </ul></div>
