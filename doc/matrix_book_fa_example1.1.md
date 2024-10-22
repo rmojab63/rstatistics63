@@ -4,7 +4,7 @@ author: "رامین مجاب"
 output: md_document
 ---
 #  مثال ۱.۱: تعریف یک ماتریس (مقدمه‌ای بر برنامه‌نویسی)
-<div style='font-size: 0.8em;'><b>نویسنده:</b> <span>رامین مجاب</span></div>
+<p style='font-size: 0.8em;'><b>نویسنده:</b> <span>رامین مجاب</span></p>
 
 این مثال حاوی یک بحث نسبتاً طولانی دربارهٔ ماتریس در **R** است. بحث را با کد زیر و استفاده از تابع `matrix` برای ایجاد یک ماتریس نمونه آغاز می‌کنیم:
 
@@ -140,7 +140,7 @@ output: md_document
 
 
 <hr/><div style='font-size: 0.8em; background-color: #f0f0f0; padding: 10px;'>
-<ul>
+<ul dir='rtl'>
 <li><a href='matrix_book_fa_example1.2.html'>مثال ۱.۲: شناسایی نوع ماتریس‌ها (ادامهٔ مقدمه‌ای بر برنامه‌نویسی)</a></li>
 <li><a href='matrix_book_fa.html'><b>لیست مثال‌ها</b></a></li>
 </ul></div>

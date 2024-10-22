@@ -10,7 +10,9 @@ knitr::opts_chunk$set(background = NULL,
                       tidy = 'styler')
 
 create_md <- function(dir_name = "", deleteAll = FALSE, index_premd = NULL,
-                      main_list_name = "<b>Main List</b>", author_name = "<b>Author:</b> <span>Ramin Mojab</span>"){
+                      main_list_name = "<b>Main List</b>", 
+                      author_name = "<b>Author:</b> <span>Ramin Mojab</span>",
+                      linksdir = "ltr"){
   extract_title <- function(file) {
     lines <- readLines(file)
     yaml_lines <- lines[grep("^---$", lines)[1]:grep("^---$", lines)[2]]
@@ -55,12 +57,12 @@ create_md <- function(dir_name = "", deleteAll = FALSE, index_premd = NULL,
     j <- which(text == "---")[[2]]
     
     text <- append(text, c(paste("# ", file_title),
-                           paste0("<div style='font-size: 0.8em;'>", author_name,"</div>")), after = j)
+                           paste0("<p style='font-size: 0.8em;'>", author_name,"</p>")), after = j)
     j <- j+2
       
     # Add links at the end
     text <- append(text, c("", "", "<hr/><div style='font-size: 0.8em; background-color: #f0f0f0; padding: 10px;'>"))
-    text <- append(text, "<ul>")
+    text <- append(text, paste0("<ul dir='", linksdir  ,"'>"))
     if (!is.null(prev_file_html)) { 
       text <- append(text, paste0("<li><a href='", prev_file_html, "'>", prev_file_title, "</a></li>"))
     } 
@@ -82,7 +84,8 @@ create_md <- function(dir_name = "", deleteAll = FALSE, index_premd = NULL,
 
 res <- create_md(dir_name = "matrix_book_fa", deleteAll = TRUE,
                  main_list_name = "<b>لیست مثال‌ها</b>", 
-                 author_name = "<b>نویسنده:</b> <span>رامین مجاب</span>")
+                 author_name = "<b>نویسنده:</b> <span>رامین مجاب</span>",
+                 linksdir = "rtl")
 res <- create_md(dir_name = "matrix_book")
 
 
