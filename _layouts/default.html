@@ -40,9 +40,9 @@
     </div>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
-        const paragraphs = document.querySelectorAll('p');
-        paragraphs.forEach(paragraph => {
-          paragraph.setAttribute('dir', 'auto');
+        const elements = document.querySelectorAll('p, h1, h2, h3, h4, div');
+        elements.forEach(element => {
+          element.setAttribute('dir', 'auto');
         });
       });
     </script>

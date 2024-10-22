@@ -4,12 +4,12 @@ author: "رامین مجاب"
 output: md_document
 ---
 #  مثال ۱.۲: شناسایی نوع ماتریس‌ها (ادامهٔ مقدمه‌ای بر برنامه‌نویسی)
-<div style='font-size: 0.8em;'>**نویسنده:** رامین مجاب</div>
+<div style='font-size: 0.8em;'><b>نویسنده:</b> <span>رامین مجاب</span></div>
 <div style='font-size: 0.8em; background-color: #f0f0f0; padding: 10px;'>
-- <- [مثال ۱.۱: تعریف یک ماتریس (مقدمه‌ای بر برنامه‌نویسی)](/matrix_book_fa_example1.1.html)
-- [لیست مثال‌ها](/matrix_book_fa.html)
-</div>
-
+<ul>
+<li><p><span>&#10230; </span><a href='/matrix_book_fa_example1.1.html'>مثال ۱.۱: تعریف یک ماتریس (مقدمه‌ای بر برنامه‌نویسی)</a></p></li>
+<li><p><a href='/matrix_book_fa.html'><b>لیست مثال‌ها</b></a></p></li>
+</ul></div>
 
 مثال حاضر حاوی بررسی مجموعهٔ تعاریف بخش ۱.۲در **R** است. اگر در تابع `matrix()` ورودی `data` یک عدد باشد، ماتریسی ایجاد می‌شود که تمام درایه‌هایش برابر با اسکالر داده شده است. مثال زیر را ببینید:
 
