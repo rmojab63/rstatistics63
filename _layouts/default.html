@@ -38,5 +38,13 @@
         <p><a href="https://pages.github.com">View on GitHub</a></p>
       </footer>
     </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        const paragraphs = document.querySelectorAll('p');
+        paragraphs.forEach(paragraph => {
+          paragraph.setAttribute('dir', 'auto');
+        });
+      });
+    </script>
   </body>
 </html>
