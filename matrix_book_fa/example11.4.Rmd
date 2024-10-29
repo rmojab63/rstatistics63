@@ -1,0 +1,44 @@
+---
+title: "مثال ۱۱-۴: خوشه‌بندی $k$-میانگین (مثالی دیگر از رسم نمودار)"
+author: "رامین مجاب"
+output: md_document
+---
+
+**(صفحهٔ ۳۲۰ کتاب)**
+
+در **R**، تابع `kmeans()` ابزار مناسبی برای انجام خوشه‌بندی `k`-میانگین است. در ابتدا، یک مجموعه دادهٔ مصنوعی می‌سازیم.  	
+```{r}
+set.seed(123)
+n <- 100
+centers <- matrix(
+  data = c(
+    2, 2, # center of first cluster
+    -2, -2 # center of second cluster
+  ),
+  ncol = 2, byrow = TRUE
+)
+data <- rbind(
+  matrix(rnorm(2 * n, mean = centers[1, ]), ncol = 2),
+  matrix(rnorm(2 * n, mean = centers[2, ]), ncol = 2)
+)
+result <- kmeans(data, centers = 2)
+print(result$centers)
+```
+
+داده‌های مصنوعی از دو متغیر تشکیل می‌شوند؛  بااین‌حال از یک جا به بعد، داده‌ها حول یک مرکز متفاوت پخش می‌شوند. اکنون، کد زیر را ملاحظه کنید:
+
+
+```{r fig_clustering, fig.align='center', fig.cap="", fig.width=4, fig.height=4}
+plot(data,
+  col = result$cluster, xlab = "X1",
+  ylab = "X2", asp = 1
+)
+symbols(centers,
+  circles = c(2, 2), inches = 0.5, add = TRUE,
+  fg = "blue"
+)
+```
+
+در نوشتن این کد، از تعداد خوشه‌ها اطلاع داریم. اگر چنین اطلاعاتی وجود نداشته باشد، می‌توان راهکارهای مختلفی را دنبال کرد. به‌عنوان تمرین، نمودار را برای زمانی ترسیم کنید که الگوریتم داده‌ها را به سه خوشه تقسیم‌بندی می‌کند.
+
+

@@ -1,0 +1,26 @@
+---
+title: "مثال ۳-۵: افکنش متعامد و اریب یک بردار (رسم شکل)"
+author: "رامین مجاب"
+output: md_document
+---
+
+**(صفحهٔ ۱۰۴ کتاب)**
+
+با استفاده از تابع `plot.vector()` که در [مثال ۳-۲](matrix_book_fa_example3.2) نوشته شد، تبدیل خطی متن را پیاده‌سازی می‌کنیم. کد زیر ماتریس‌های تبدیل را معرفی می‌کند:
+```{r}
+vec <- c(1, 3)
+P1 <- matrix(c(1, 0, 1, 0), nrow = 2)
+P2 <- matrix(c(1, 0, 0, 0), nrow = 2)
+```
+اعمال تبدیل خطی موردنظر و رسم نمودارها شامل کد زیر است:
+
+```{r fig_projection_ortho, fig.align='center', fig.cap="", fig.width=3, fig.height=3, echo=-1}
+par <- par(mar = c(2, 2, 2, 2) + 0.1)
+plot.vector(newPlot = TRUE, xlim = c(0, 4), ylim = c(0, 3))
+plot.vector(vec, col = "black", label = "A")
+plot.vector(P1 %*% vec, col = "red", lwd = 2, label = "B")
+plot.vector(P2 %*% vec, col = "blue", lwd = 2, label = "C")
+```
+
+با توجه به برچسب‌های انتخاب‌شده برای بردارها، بردارهای $B$ و $C$ افکنش بردار $A$ بر محور افقی هستند، افکنش $C$ متعامد، و افکنش $B$ اریب است.
+
